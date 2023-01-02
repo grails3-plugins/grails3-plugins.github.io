@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Error 404 - Page Not Found</title>
+
+    <script>
+        window.onload = function () {
+            const repos = [
+                "grails3-plugins.github.io/mail"
+			];
+
+            const destination = window.location.href;
+            for (let i = 0; i < repos.length; i++) { 
+                if (window.location.href.includes(repos[i])) {
+                    const redirectLocation = window.location.href.replace(
+                        "grails3-plugins.github.io/",
+                        "grails.github.io/"
+                    );
+					redirectLocation.replace('mail', 'grails-mail');
+                    document.getElementById("body").innerHTML = "Redirecting to " + redirectLocation + " ...";
+                    window.location.href = redirectLocation;
+                }
+            }   
+        }
+    </script>
+</head>
+
+<body id="body" style="text-align: center">
+    Page not found
+</body>
+
+</html>
